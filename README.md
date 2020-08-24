@@ -41,7 +41,7 @@ $export | Export-Csv .\users.csv -NoTypeInformation -Delimiter "," #to export th
 
 To use with your Kaseya VSA, just:
 
-1. Import the BIT-Networking-Module-and-the-Invoke-SSH-Command-.xml file into your Kaseya VSA
+1. Import the <Procedure Folder BIT-Networking-Module-and-the-Invoke-SSH-Command-.xml> file, present in this repository, into your Kaseya VSA
 2. Execute Procedures
 
 Using the Invoke SSH Command procedure allows you to enter any SSH command. Some examples of common commands are:
