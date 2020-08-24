@@ -28,7 +28,7 @@ set-location c:\windows\temp; Set-ExecutionPolicy Bypass -Scope Process -Force; 
 
 To use <BIT-Networking-Module-and-the-Invoke-SSH-Command->, follow these steps:
 
-Start a powershell session in Windows. Then execute these commands in order.
+Start a powershell session in Windows, run the command from To Install section. Then execute these commands in order.
 
 ```
 $ip = "xx.xxx.xx.x"; $username = "username"; $password = ConvertTo-SecureString "********" -Force -AsPlainText #construct connection parameters
