@@ -64,4 +64,4 @@ If you want to contact me you can reach me at <gabriel@bercell.com>.
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [<MIT License>](<https://opensource.org/licenses/MIT>).
+This project uses the following license: [<MIT License>] <https://opensource.org/licenses/MIT>.
