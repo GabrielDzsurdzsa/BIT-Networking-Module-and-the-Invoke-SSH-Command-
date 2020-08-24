@@ -36,7 +36,7 @@ $session = connect-SSH -ip $ip -username $username -password $password #connect 
 $users = Invoke-SSH-Command -session $session -command "less /etc/passwd" #invoke ssh command and return an object[] with all users on web server, this command can be any SSH command supported by your web server
 $export = $users | Foreach-Object {New-Object PSCustomObject -Property @{User = $_}} #convert to exportable object[]
 $export | Export-Csv .\users.csv -NoTypeInformation -Delimiter "," #to export the users dataset to csv
-For use in Kaseya: Download the procedures from GitHub, import the procedures in your Kaseya app, and execute the procedures.
+"For use in Kaseya: Download the procedures from GitHub, import the procedures in your Kaseya app, and execute the procedures."
 ```
 
 ## Contributing to <BIT Networking Module and Invoke-SSH-Command>
