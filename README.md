@@ -46,10 +46,10 @@ To use with your Kaseya VSA, just:
 
 Using the Invoke SSH Command procedure allows you to enter any SSH command. Some examples of common commands are:
 
-ls
-find
-du
-cat
+1. ls
+2. find
+3. du
+4. cat
 
 ## Contributing to <BIT Networking Module and Invoke-SSH-Command>
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
