@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScriptExport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kaseya.com/vsa/2008/12/Scripting">
+  <Folder name="BIT-Networking-Module-and-the-Invoke-SSH-Command-" treePres="3">
+    <Procedure name="Get Folder Size in GB" treePres="3" id="161499069" folderId="838062912662542" treeFullPath="@ - BIT Procedures.BIT Automations Framework.Kaseya ConnectIT Composer Contest Entry.BIT-Networking-Module-and-the-Invoke-SSH-Command-">
+      <Body description="">
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="Enter server ip" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="ip" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter SSH username" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="username" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter SSH password" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="password" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter folder path, e.g. /" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="folder" />
+        </Statement>
+        <Statement name="Execute Powershell" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="Parameter1" value="" />
+          <Parameter xsi:type="StringParameter" name="Parameter2" value="set-location c:\windows\temp; Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/GabrielDzsurdzsa/BIT-Networking-Module-and-the-Invoke-SSH-Command-/raw/master/init.ps1')); $ip = '#ip#'; $username = '#username#'; $password = ConvertTo-SecureString '#password#' -Force -AsPlainText; $session = connect-SSH -ip $ip -username $username -password $password; invoke-SSH-Command -session $session -command 'du -msh #folder#'; disconnect-SSH -session $session;" />
+          <Parameter xsi:type="StringParameter" name="Parameter3" value="True" />
+        </Statement>
+        <Statement name="SendEmail" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="To" value="#adminDefaults.adminEmail#" />
+          <Parameter xsi:type="StringParameter" name="Subject" value="Executed Get Folder Size in GB for: #folder#" />
+          <Parameter xsi:type="MultiLineStringParameter" name="Body" value="#global:psresult#" />
+        </Statement>
+      </Body>
+    </Procedure>
+    <Procedure name="Invoke SSH Command" treePres="3" id="1334114977" folderId="838062912662542" treeFullPath="@ - BIT Procedures.BIT Automations Framework.Kaseya ConnectIT Composer Contest Entry.BIT-Networking-Module-and-the-Invoke-SSH-Command-">
+      <Body description="">
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="Enter server ip" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="ip" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter SSH username" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="username" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter SSH password" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="password" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="enter ssh command" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="command" />
+        </Statement>
+        <Statement name="Execute Powershell" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="Parameter1" value="" />
+          <Parameter xsi:type="StringParameter" name="Parameter2" value="set-location c:\windows\temp; Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/GabrielDzsurdzsa/BIT-Networking-Module-and-the-Invoke-SSH-Command-/raw/master/init.ps1')); $ip = '#ip#'; $username = '#username#'; $password = ConvertTo-SecureString '#password#' -Force -AsPlainText; $session = connect-SSH -ip $ip -username $username -password $password; invoke-SSH-Command -session $session -command '#command#'; disconnect-SSH -session $session;" />
+          <Parameter xsi:type="StringParameter" name="Parameter3" value="True" />
+        </Statement>
+        <Statement name="SendEmail" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="To" value="#adminDefaults.adminEmail#" />
+          <Parameter xsi:type="StringParameter" name="Subject" value="Executed Invoke SSH Command: #command#" />
+          <Parameter xsi:type="MultiLineStringParameter" name="Body" value="#global:psresult#" />
+        </Statement>
+      </Body>
+    </Procedure>
+    <Procedure name="List Web Server Users" treePres="3" id="569652726" folderId="838062912662542" treeFullPath="@ - BIT Procedures.BIT Automations Framework.Kaseya ConnectIT Composer Contest Entry.BIT-Networking-Module-and-the-Invoke-SSH-Command-">
+      <Body description="">
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="Enter server ip" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="ip" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="Enter SSH username" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="username" />
+        </Statement>
+        <Statement name="GetVariable" continueOnFail="false">
+          <Parameter xsi:type="EnumParameter" name="VariableType" value="Prompt" />
+          <Parameter xsi:type="StringParameter" name="SourceContent" value="Enter SSH Password" />
+          <Parameter xsi:type="StringParameter" name="VariableName" value="password" />
+        </Statement>
+        <Statement name="Execute Powershell" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="Parameter1" value="" />
+          <Parameter xsi:type="StringParameter" name="Parameter2" value="set-location c:\windows\temp; Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/GabrielDzsurdzsa/BIT-Networking-Module-and-the-Invoke-SSH-Command-/raw/master/init.ps1')); $ip = '#ip#'; $username = '#username#'; $password = ConvertTo-SecureString '#password#' -Force -AsPlainText; $session = connect-SSH -ip $ip -username $username -password $password; invoke-SSH-Command -session $session -command 'less /etc/passwd'; disconnect-SSH -session $session;" />
+          <Parameter xsi:type="StringParameter" name="Parameter3" value="True" />
+        </Statement>
+        <Statement name="SendEmail" continueOnFail="false">
+          <Parameter xsi:type="StringParameter" name="To" value="#adminDefaults.adminEmail#" />
+          <Parameter xsi:type="StringParameter" name="Subject" value="Executed List Web Server Users" />
+          <Parameter xsi:type="MultiLineStringParameter" name="Body" value="#global:psresult#" />
+        </Statement>
+      </Body>
+    </Procedure>
+  </Folder>
+</ScriptExport>
