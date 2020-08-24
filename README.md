@@ -22,7 +22,7 @@ To install <BIT-Networking-Module-and-the-Invoke-SSH-Command->, follow these ste
 
 Windows (new powershell session as admin):
 ```
-<Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/GabrielDzsurdzsa/BIT-Networking-Module-and-the-Invoke-SSH-Command-/init.ps1'))>
+<Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/GabrielDzsurdzsa/BIT-Networking-Module-and-the-Invoke-SSH-Command-/raw/master/init.ps1'))>
 ```
 ## Using <BIT-Networking-Module-and-the-Invoke-SSH-Command->
 
